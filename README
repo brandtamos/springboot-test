@@ -10,4 +10,4 @@ using the API.
 
 http://localhost:8080/sfui/create will allow you to create a new account record in salesforce.
 
-http://localhost:8080/sfui/create allows you to look up an existing account by Id and modify a couple fields.
+http://localhost:8080/sfui/update allows you to look up an existing account by Id and modify a couple fields.
