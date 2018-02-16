@@ -1,0 +1,13 @@
+**Springboot Test App**
+
+This app is meant to demonstrate calling the Salesforce API from withiin a springboot application. 
+
+In order to authenticate, you will have to add your credentials in the /src/main/hello/SalesforceController.java file 
+(I realized this is not ideal, but this is merely for demonstration purposes).
+
+You can access the UI on port 8080. There are a couple different pages to demo CRUD operations in salesforce
+using the API.
+
+http://localhost:8080/sfui/create will allow you to create a new account record in salesforce.
+
+http://localhost:8080/sfui/create allows you to look up an existing account by Id and modify a couple fields.
