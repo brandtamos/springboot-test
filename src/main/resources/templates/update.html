@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spring SF Rest Operation Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#goButton').click(function(){
+                $.get(
+                    '/sf/getaccount?id='+$('#requestId').val(),
+                    function(data){
+                        console.log(data);
+                        $('#Id').val(data.Id);
+                        $('#Name').val(data.Name);
+                        $('#Description').val(data.Description);
+                    }
+                );
+            });
+            $('#submitButton').click(function(e){
+                e.preventDefault();
+                var account = {
+                    Id: $('#Id').val(),
+                    Name: $('#Name').val(),
+                    Description: $('#Description').val()
+            };
+                console.log(account);
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    'type': 'POST',
+                    'url': '/sf/updateaccount',
+                    'data': JSON.stringify(account),
+                    'dataType': 'json',
+                    'success': function(){ alert('success!');}
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+Enter the Id of the Account you wish to retrieve: <br />
+<input type="text" id="requestId" maxlength="18" value="0011N00001F4IDoQAN"/> <br />
+<button id="goButton">Go!</button>
+<br />
+<br />
+
+<form id="theForm">
+    Id:<input type="text" id="Id" readonly="true" /> <br />
+    Name:<input type="text" id="Name" /> <br />
+    Description:<input type="text" id="Description" /> <br />
+    <button id="submitButton">Submit</button>
+</form>
+</body>
+</html>

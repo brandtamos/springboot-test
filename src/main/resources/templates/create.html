@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spring SF Rest Operation Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#submitButton').click(function(e){
+                e.preventDefault();
+                var account = {
+                    Name: $('#Name').val(),
+                    Description: $('#Description').val()
+            };
+                $.ajax({
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    },
+                    'type': 'POST',
+                    'url': '/sf/createaccount',
+                    'data': JSON.stringify(account),
+                    'dataType': 'json',
+                    'success': function(data){
+                        console.log(data);
+                        $('#recordId').val(data.Id);
+                        $('#recordIdWrapper').slideDown();
+                    }
+                });
+            });
+        });
+
+    </script>
+
+    <style>
+        #recordIdWrapper{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<form id="theForm">
+    Name:<input type="text" id="Name" /> <br />
+    Description:<input type="text" id="Description" /> <br />
+    <div id="recordIdWrapper">
+        Account Id:<input id="recordId" />
+    </div>
+    <button id="submitButton">Submit</button>
+</form>
+</body>
+</html>
