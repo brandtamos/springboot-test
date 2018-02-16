@@ -18,9 +18,9 @@ public class SalesforceController {
             purposes.
          */
         api = new ForceApi(new ApiConfig()
-                .setUsername("<SALESFORCE USERNAME")
-                .setPassword("<PASSWORD + SECURITY TOKEN")
-                .setClientId("<LONG ALPHANUMERIC STRING")
+                .setUsername("<SALESFORCE USERNAME>")
+                .setPassword("<PASSWORD + SECURITY TOKEN>")
+                .setClientId("<LONG ALPHANUMERIC STRING>")
                 .setClientSecret("<SHORTER NUMBER STRING>"));
     }
     @RequestMapping("/sf/getaccount")
